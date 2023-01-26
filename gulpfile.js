@@ -15,12 +15,24 @@ const imagemin = require('gulp-imagemin');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 
+// переменные путей
+const srcPath = "src/"
+const distPath = "dist/"
+
 const path = {
     build: {
-        html: "dist",
-        css: "dist/assets/css/",
-        js: "dist/assets/js/",
-        images: "dist/assets/images/",
-        fonts: "dist/assets/fonts/",
+        html: distPath, 
+        css: distPath + "assets/css/",
+        js: distPath + "assets/js/",
+        images: distPath + "assets/images/",
+        fonts: distPath + "assets/fonts/",
+    },
+    src: {
+        html: srcPath + "*.html",
+        css: srcPath + "assets/scss/*.scss",
+        js: srcPath + "assets/js/*.js",
+        images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+        fonts: srcPath + "assets/fonts/**/*.{ttf,woff,woff2,eot,svg}",
     }
 }
+
