@@ -33,6 +33,31 @@ const path = {
         js: srcPath + "assets/js/*.js",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
         fonts: srcPath + "assets/fonts/**/*.{ttf,woff,woff2,eot,svg}",
-    }
+    },
+    watch: {
+        html: srcPath + "**/*.html",
+        css: srcPath + "assets/scss/**/*.scss",
+        js: srcPath + "assets/js/**/*.js",
+        images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+        fonts: srcPath + "assets/fonts/**/*.{ttf,woff,woff2,eot,svg}",
+    },
+    clean: "./" + distPath
 }
 
+function html() {
+    return src(path.src.html, {base: srcPath})
+        .pipe(plumber())
+        .pipe(dest(path.build.html))
+}
+
+function css() {
+    return src(path.src.css, {base: srcPath + "assets/scss/"})
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(autoprefixer())
+        .pipe(cssbeautify())
+        .pipe(dest(path.build.css))
+}
+
+exports.html = html
+exports.css = css
