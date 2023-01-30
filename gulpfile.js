@@ -57,7 +57,38 @@ function css() {
         .pipe(autoprefixer())
         .pipe(cssbeautify())
         .pipe(dest(path.build.css))
+        .pipe(cssnano(
+            {
+                zindex: false,
+                discardComments: {
+                    removeAll: true
+                }
+            }
+        ))
+        .pipe(removeComments())
+        .pipe(rename(
+            {
+                suffix: ".min",
+                outname: ".css"
+            }
+        ))
+        .pipe(dest(path.build.css))
 }
 
+function js() {
+    return src(path.src.js, {base: srcPath + "assets/js/"})
+        .pipe(plumber())
+        .pipe(rigger())
+        .pipe(dest(path.build.js))
+        .pipe(uglify())
+        .pipe(rename(
+            {
+                suffix: ".min",
+                outname: ".js"
+            }
+        ))
+        .pipe(dest(path.build.js))
+}
 exports.html = html
 exports.css = css
+exports.js = js
