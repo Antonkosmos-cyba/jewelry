@@ -11,7 +11,10 @@ const cssnano = require('gulp-cssnano');
 const uglify = require('gulp-uglify');
 const plumber = require('gulp-plumber');
 const panini = require('panini');
+const rigger = require('gulp-rigger');
 const imagemin = require('gulp-imagemin');
+const webp = require('gulp-webp')
+const newer = require('gulp-newer')
 const del = require('del');
 const browserSync = require('browser-sync').create();
 
@@ -89,6 +92,30 @@ function js() {
         ))
         .pipe(dest(path.build.js))
 }
+
+function images() {
+    return src(path.src.images, {base: srcPath + "assets/images/"})
+    .pipe(newer(path.build.images))
+    .pipe(webp())
+    .pipe(dest(path.build.images))
+    .pipe(src(path.src.images))
+    .pipe(newer(path.build.images))
+    .pipe(imagemin([
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.mozjpeg({quality: 75, progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
+    .pipe(dest(path.build.images))
+
+}
+
 exports.html = html
 exports.css = css
 exports.js = js
+exports.images = images
