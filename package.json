@@ -32,6 +32,7 @@
     "gulp-strip-css-comments": "^2.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
+    "gulp-webp-html": "^1.0.2",
     "panini": "^1.7.2",
     "sass": "^1.57.1"
   }

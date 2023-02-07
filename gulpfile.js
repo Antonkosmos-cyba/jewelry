@@ -13,8 +13,9 @@ const plumber = require('gulp-plumber');
 const panini = require('panini');
 const rigger = require('gulp-rigger');
 const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp')
-const newer = require('gulp-newer')
+const webp = require('gulp-webp');
+const webpHTML = require('gulp-webp-html');
+const newer = require('gulp-newer');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 
@@ -50,6 +51,7 @@ const path = {
 function html() {
     return src(path.src.html, {base: srcPath})
         .pipe(plumber())
+        .pipe(webpHTML())
         .pipe(dest(path.build.html))
 }
 
@@ -115,7 +117,25 @@ function images() {
 
 }
 
-exports.html = html
-exports.css = css
-exports.js = js
-exports.images = images
+function fonts() {
+    return src(path.src.fonts, {base: srcPath + "assets/fonts/"})
+    .pipe(dest(path.build.fonts))
+}
+
+function clean() {
+    return del(path.clean)
+}
+
+function watchFiles() {
+    gulp.watch([path.watch.html], html)
+    gulp.watch([path.watch.css], css)
+    gulp.watch([path.watch.js], js)
+    gulp.watch([path.watch.images], images)
+    gulp.watch([path.watch.fonts], fonts)
+}
+
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts))
+const watch = gulp.parallel(build, watchFiles)
+
+exports.build = build 
+exports.watch = watch
