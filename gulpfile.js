@@ -17,6 +17,7 @@ const webp = require('gulp-webp');
 const webpHTML = require('gulp-webp-html');
 const newer = require('gulp-newer');
 const del = require('del');
+const { stream } = require("browser-sync");
 const browserSync = require('browser-sync').create();
 
 // переменные путей
@@ -53,6 +54,7 @@ function html() {
         .pipe(plumber())
         .pipe(webpHTML())
         .pipe(dest(path.build.html))
+        .pipe(browserSync.reload({stream: true}))
 }
 
 function css() {
@@ -78,6 +80,7 @@ function css() {
             }
         ))
         .pipe(dest(path.build.css))
+        .pipe(browserSync.reload({stream: true}))
 }
 
 function js() {
@@ -93,6 +96,7 @@ function js() {
             }
         ))
         .pipe(dest(path.build.js))
+        .pipe(browserSync.reload({stream: true}))
 }
 
 function images() {
@@ -114,12 +118,14 @@ function images() {
         })
     ]))
     .pipe(dest(path.build.images))
+    .pipe(browserSync.reload({stream: true}))
 
 }
 
 function fonts() {
     return src(path.src.fonts, {base: srcPath + "assets/fonts/"})
     .pipe(dest(path.build.fonts))
+    .pipe(browserSync.reload({stream: true}))
 }
 
 function clean() {
@@ -134,8 +140,17 @@ function watchFiles() {
     gulp.watch([path.watch.fonts], fonts)
 }
 
+function server() {
+    browserSync.init({
+        server: {
+            baseDir: "./" + distPath
+        }
+    });
+}
+
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts))
-const watch = gulp.parallel(build, watchFiles)
+const watch = gulp.parallel(build, watchFiles, server)
 
 exports.build = build 
 exports.watch = watch
+exports.default = watch
