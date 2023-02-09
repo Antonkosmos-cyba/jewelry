@@ -18,6 +18,7 @@ const webpHTML = require('gulp-webp-html');
 const newer = require('gulp-newer');
 const del = require('del');
 const { stream } = require("browser-sync");
+const notify = require('gulp-notify');
 const browserSync = require('browser-sync').create();
 
 // переменные путей
@@ -59,7 +60,17 @@ function html() {
 
 function css() {
     return src(path.src.css, {base: srcPath + "assets/scss/"})
-        .pipe(plumber())
+        .pipe(plumber(
+            {
+                errorHandler : function(err){
+                    notify.onError({
+                        title: "SCSS Error",
+                        message: "Error: <%- error.message %>"
+                    })(err);
+                    this.emit('end');
+                }
+            }
+        ))
         .pipe(sass())
         .pipe(autoprefixer())
         .pipe(cssbeautify())
