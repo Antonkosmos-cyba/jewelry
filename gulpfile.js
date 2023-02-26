@@ -51,8 +51,16 @@ const path = {
 }
 
 function html() {
+    panini.refresh
     return src(path.src.html, {base: srcPath})
         .pipe(plumber())
+        .pipe(panini({
+            root: srcPath,
+            layouts: srcPath + "template/layouts/",
+            partials: srcPath + "template/partials/",
+            helpers: srcPath + "template/helpers/",
+            data: srcPath + "template/data/",
+        }))
         .pipe(webpHTML())
         .pipe(dest(path.build.html))
         .pipe(browserSync.reload({stream: true}))
