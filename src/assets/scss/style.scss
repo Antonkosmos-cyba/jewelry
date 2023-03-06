@@ -1,9 +1,40 @@
-/* cvvvbbbbb */
-body      {
+// @font-face {
+//   font-family: "Caveat-Bold";
+//   src: local("Caveat-Bold"), url("./fonts/caveat/Caveat-Bold.ttf") format("truetype");
+// }
 
-background-color: aquamarine;
-margin: 0;}
+// @font-face {
+//   font-family: "Caveat-Medium";
+//   src: url("./fonts/caveat/Caveat-Medium.ttf") format("truetype");
+// }
 
-h2 {
-    color: green;
+// @font-face {
+//   font-family: "Roboto-Regular";
+//   src: url("./fonts/roboto/Roboto-Regular.ttf") format("truetype");
+// }
+
+// @font-face {
+//   font-family: "Roboto-Bold";
+//   src: url("./fonts/roboto/Roboto-Bold.ttf") format("truetype");
+// }
+
+// @font-face {
+//   font-family: "Roboto-Medium";
+//   src: url("./fonts/roboto/Roboto-Medium.ttf") format("truetype");
+// }
+
+// @import "modules/variables";
+// @import "modules/atomic";
+// @import "modules/colors";
+// @import "modules/general";
+
+// @import "Header";
+// @import "btn";
+// @import "menu";
+// @import "main";
+// @import "footer";
+// @import "modules"
+
+body {
+    background-color: red;
 }

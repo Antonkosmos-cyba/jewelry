@@ -29,42 +29,46 @@ const path = {
     build: {
         html: distPath, 
         css: distPath + "assets/css/",
+        basecss: distPath + "assets/css",
         js: distPath + "assets/js/",
-        images: distPath + "assets/images/",
-        fonts: distPath + "assets/fonts/",
+        images: distPath + "images/",
+        icons: distPath + "assets/css/",
+        fonts: distPath + "assets/webfonts/",
     },
     src: {
         html: srcPath + "*.html",
         css: srcPath + "assets/scss/*.scss",
+        basecss: srcPath + "assets/scss/*.css",
         js: srcPath + "assets/js/*.js",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-        fonts: srcPath + "assets/fonts/**/*.{ttf,woff,woff2,eot,svg}",
+        icons: srcPath + "assets/scss/images/*.svg",
+        fonts: srcPath + "assets/webfonts/**/*.{ttf,woff,woff2,eot,svg}",
     },
     watch: {
         html: srcPath + "**/*.html",
         css: srcPath + "assets/scss/**/*.scss",
         js: srcPath + "assets/js/**/*.js",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-        fonts: srcPath + "assets/fonts/**/*.{ttf,woff,woff2,eot,svg}",
+        fonts: srcPath + "assets/webfonts/**/*.{ttf,woff,woff2,eot,svg}",
     },
     clean: "./" + distPath
 }
 
 function html() {
-    panini.refresh
+    panini.refresh()
     return src(path.src.html, {base: srcPath})
         .pipe(plumber())
         .pipe(panini({
             root: srcPath,
-            layouts: srcPath + "template/layouts/",
-            partials: srcPath + "template/partials/",
-            helpers: srcPath + "template/helpers/",
-            data: srcPath + "template/data/",
+            layouts: srcPath + "templates/layouts/",
+            partials: srcPath + "templates/partials/",
         }))
         .pipe(webpHTML())
         .pipe(dest(path.build.html))
         .pipe(browserSync.reload({stream: true}))
 }
+
+
 
 function css() {
     return src(path.src.css, {base: srcPath + "assets/scss/"})
@@ -98,7 +102,7 @@ function css() {
                 outname: ".css"
             }
         ))
-        .pipe(dest(path.build.css))
+        .pipe(dest(path.build.css))        
         .pipe(browserSync.reload({stream: true}))
 }
 
@@ -142,8 +146,36 @@ function images() {
 }
 
 function fonts() {
-    return src(path.src.fonts, {base: srcPath + "assets/fonts/"})
+    return src(path.src.fonts, {base: srcPath + "assets/webfonts/"})
     .pipe(dest(path.build.fonts))
+    .pipe(browserSync.reload({stream: true}))
+
+}
+
+function basecss() {
+    return src(path.src.basecss, {base: srcPath + "assets/scss/"})
+    .pipe(dest(path.build.basecss))
+    .pipe(cssnano(
+        {
+            zindex: false,
+            discardComments: {
+                removeAll: true
+            }
+        }
+        ))
+        .pipe(removeComments())
+        .pipe(rename(
+            {
+                suffix: ".min",
+                outname: ".css"
+            }
+        ))
+    .pipe(dest(path.build.basecss))
+    .pipe(browserSync.reload({stream: true}))
+}
+function icons() {
+    return src(path.src.icons, {base: srcPath + "assets/scss/"})
+    .pipe(dest(path.build.icons))
     .pipe(browserSync.reload({stream: true}))
 }
 
@@ -167,8 +199,9 @@ function server() {
     });
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts))
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts, basecss, icons))
 const watch = gulp.parallel(build, watchFiles, server)
+
 
 exports.build = build 
 exports.watch = watch
