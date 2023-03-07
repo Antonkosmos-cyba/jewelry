@@ -47,6 +47,7 @@ const path = {
     watch: {
         html: srcPath + "**/*.html",
         css: srcPath + "assets/scss/**/*.scss",
+        basecss: srcPath + "assets/scss/*.css",
         js: srcPath + "assets/js/**/*.js",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
         fonts: srcPath + "assets/webfonts/**/*.{ttf,woff,woff2,eot,svg}",
@@ -61,7 +62,7 @@ function html() {
         .pipe(panini({
             root: srcPath,
             layouts: srcPath + "templates/layouts/",
-            partials: srcPath + "templates/partials/",
+            partials: srcPath + "templates/partials/**/",
         }))
         .pipe(webpHTML())
         .pipe(dest(path.build.html))
@@ -186,6 +187,7 @@ function clean() {
 function watchFiles() {
     gulp.watch([path.watch.html], html)
     gulp.watch([path.watch.css], css)
+    gulp.watch([path.watch.basecss], basecss)
     gulp.watch([path.watch.js], js)
     gulp.watch([path.watch.images], images)
     gulp.watch([path.watch.fonts], fonts)
