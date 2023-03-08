@@ -23,7 +23,7 @@
 //   src: url("./fonts/roboto/Roboto-Medium.ttf") format("truetype");
 // }
 
-// @import "modules/variables";
+@import "modules/palette";
 // @import "modules/atomic";
 // @import "modules/colors";
 // @import "modules/general";
@@ -35,3 +35,24 @@
 // @import "footer";
 // @import "page"
 
+.spotlight:nth-child(1) {
+    background-color: $color-primary-1; 
+}
+
+.spotlight:nth-child(2) {
+    background-color:$color-primary-1;
+    opacity: 0.8;
+}
+
+.spotlight:nth-child(3) {
+    background-color: $color-primary-1; 
+}
+
+.spotlight:nth-child(4) {
+    background-color:$color-primary-1;
+    opacity: 0.8; 
+}
+
+.spotlight:nth-child(5) {
+    background-color: rgba(0, 0, 0, 0.375);
+}

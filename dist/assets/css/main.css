@@ -2697,20 +2697,21 @@ input, select, textarea {
 			flex-direction: row-reverse;
 		}
 
-		.spotlight:nth-child(1) {
-			background-color: rgba(0, 0, 0, 0.075);
+		/* .spotlight:nth-child(1) {
+			background-color: $color-primary-1;
 		}
 
 		.spotlight:nth-child(2) {
-			background-color: rgba(0, 0, 0, 0.15);
-		}
+			background-color: $color-primary-1; 
+			
+			}
 
 		.spotlight:nth-child(3) {
-			background-color: rgba(0, 0, 0, 0.225);
+			background-color: $color-primary-1; 
 		}
 
 		.spotlight:nth-child(4) {
-			background-color: rgba(0, 0, 0, 0.3);
+			background-color: $color-primary-1; 
 		}
 
 		.spotlight:nth-child(5) {
@@ -2735,7 +2736,7 @@ input, select, textarea {
 
 		.spotlight:nth-child(10) {
 			background-color: rgba(0, 0, 0, 0.75);
-		}
+		} */
 
 		@media screen and (max-width: 1280px) {
 

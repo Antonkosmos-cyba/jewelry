@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* Основной Цвет */
+.spotlight:nth-child(1) {
+    background-color: rgb(51, 102, 102);
+}
+
+.spotlight:nth-child(2) {
+    background-color: rgb(51, 102, 102);
+    opacity: 0.8;
+}
+
+.spotlight:nth-child(3) {
+    background-color: rgb(51, 102, 102);
+}
+
+.spotlight:nth-child(4) {
+    background-color: rgb(51, 102, 102);
+    opacity: 0.8;
+}
+
+.spotlight:nth-child(5) {
+    background-color: rgba(0, 0, 0, 0.375);
+}
