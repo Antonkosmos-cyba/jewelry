@@ -3591,7 +3591,7 @@ input, select, textarea {
 			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
 			transition: transform 0.5s ease, opacity 0.5s ease;
 			display: inline-block;
-			font-size: 1.75em;
+			font-size: 3.75em;
 			opacity: 1;
 			padding: 0.35em 1em;
 			position: relative;
@@ -3710,16 +3710,16 @@ input, select, textarea {
 			}
 
 				#banner h2 {
-					font-size: 1.25em;
+					font-size: 3.25em;
 				}
 
 				#banner br {
 					display: none;
 				}
 
-				#banner .more {
+				/* #banner .more {
 					display: none;
-				}
+				} */
 
 		}
 
