@@ -15,6 +15,7 @@ const rigger = require('gulp-rigger');
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
 const webpHTML = require('gulp-webp-html');
+const htmlmin = require('gulp-htmlmin');
 const newer = require('gulp-newer');
 const del = require('del');
 const { stream } = require("browser-sync");
@@ -65,6 +66,7 @@ function html() {
             partials: srcPath + "templates/partials/**/",
         }))
         .pipe(webpHTML())
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(dest(path.build.html))
         .pipe(browserSync.reload({stream: true}))
 }

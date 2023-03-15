@@ -1,0 +1,48 @@
+.spotlight:nth-child(1) {
+    background-color: $color-primary-1; 
+}
+
+.spotlight:nth-child(2) {
+    background-color:$color-primary-1;
+    opacity: 0.8;
+}
+
+.spotlight:nth-child(3) {
+    background-color: $color-primary-1; 
+}
+
+.spotlight:nth-child(4) {
+    background-color:$color-primary-1;
+    opacity: 0.8; 
+}
+
+.spotlight:nth-child(5) {
+    background-color: rgba(0, 0, 0, 0.375);
+}
+
+body {
+    background-image: url(../../images/kamni.webp);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+#menu {
+    background:  $color-primary-2;
+}
+
+#header {
+    background: #29554b;
+}
+
+#footer {
+    background: #29554b;
+}
+
+#banner:after {
+    background: $color-primary-1;
+}
