@@ -33,6 +33,11 @@ body {
     -o-background-size: cover;
 }
 
+.blur {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
 #menu {
     background: rgb(0, 102, 102);
 }

@@ -31,6 +31,10 @@ body {
     -o-background-size: cover;
 }
 
+.blur {
+    backdrop-filter: blur(10px)
+}
+
 #menu {
     background:  $color-primary-2;
 }

@@ -71,8 +71,6 @@ function html() {
         .pipe(browserSync.reload({stream: true}))
 }
 
-
-
 function css() {
     return src(path.src.css, {base: srcPath + "assets/scss/"})
         .pipe(plumber(
@@ -145,14 +143,12 @@ function images() {
     ]))
     .pipe(dest(path.build.images))
     .pipe(browserSync.reload({stream: true}))
-
 }
 
 function fonts() {
     return src(path.src.fonts, {base: srcPath + "assets/webfonts/"})
     .pipe(dest(path.build.fonts))
     .pipe(browserSync.reload({stream: true}))
-
 }
 
 function basecss() {
@@ -205,7 +201,6 @@ function server() {
 
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts, basecss, icons))
 const watch = gulp.parallel(build, watchFiles, server)
-
 
 exports.build = build 
 exports.watch = watch
