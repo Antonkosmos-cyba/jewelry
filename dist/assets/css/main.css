@@ -2143,7 +2143,7 @@ input, select, textarea {
 
 	ul {
 		list-style: disc;
-		margin: 0 0 2em 0;
+		margin: 0 0 1em 0;
 		padding-left: 1em;
 	}
 
@@ -3882,13 +3882,14 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		padding: 6em 0 4em 0 ;
+		padding: 1em 0 1em 0 ;
 		/* background-color: #1d242a; */
 		text-align: center;
 	}
 
 		#footer .icons {
 			font-size: 2em;
+			margin: 1em 0;
 		}
 
 			#footer .icons a {
@@ -3937,26 +3938,26 @@ input, select, textarea {
 						display: block;
 						line-height: 1.65em;
 						margin: 0;
-						padding: 0.5em 0;
+						/* padding: 0.5em 0; */
 					}
 
 				}
 
-		@media screen and (max-width: 980px) {
+		/* @media screen and (max-width: 980px) {
 
 			#footer {
 				padding: 4em 3em 2em 3em ;
 			}
 
-		}
+		} */
 
-		@media screen and (max-width: 736px) {
+		/* @media screen and (max-width: 736px) {
 
 			#footer {
 				padding: 3em 2em 1em 2em ;
 			}
 
-		}
+		} */
 
 /* Landing */
 
