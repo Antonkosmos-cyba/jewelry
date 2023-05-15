@@ -63,6 +63,20 @@ body {
     background: rgb(51, 102, 102);
 }
 
+.topic {
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.foto {
+    float: left;
+    max-width: 350px;
+    margin-right: 20px;
+    border: 1px solid #3e3f3d;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #4b4c4b;
+}
+
 /* ZERO */
 /* end of the ZERO */
 /*^ Для более комфортного отображения */

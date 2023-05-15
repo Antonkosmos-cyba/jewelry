@@ -41,7 +41,7 @@ const path = {
         css: srcPath + "assets/scss/*.scss",
         basecss: srcPath + "assets/scss/*.css",
         js: srcPath + "assets/js/*.js",
-        images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+        images: srcPath + "assets/images/**/*.{jpeg,jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
         icons: srcPath + "assets/scss/images/*.svg",
         fonts: srcPath + "assets/webfonts/**/*.{ttf,woff,woff2,eot,svg}",
     },
@@ -50,7 +50,7 @@ const path = {
         css: srcPath + "assets/scss/**/*.scss",
         basecss: srcPath + "assets/scss/*.css",
         js: srcPath + "assets/js/**/*.js",
-        images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+        images: srcPath + "assets/images/**/*.{jpeg,jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
         fonts: srcPath + "assets/webfonts/**/*.{ttf,woff,woff2,eot,svg}",
     },
     clean: "./" + distPath
