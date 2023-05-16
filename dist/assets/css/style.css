@@ -70,11 +70,32 @@ body {
 
 .foto {
     float: left;
-    max-width: 350px;
+    max-width: 360px;
     margin-right: 20px;
     border: 1px solid #3e3f3d;
     border-radius: 20px;
     box-shadow: 0 0 20px #4b4c4b;
+}
+
+@media (max-width: 425px) {
+    .foto {
+        max-width: 350px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .foto {
+        max-width: 320px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 326px) {
+    .foto {
+        max-width: 270px;
+        margin-bottom: 20px;
+    }
 }
 
 /* ZERO */
