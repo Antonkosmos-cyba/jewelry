@@ -3832,6 +3832,7 @@ input, select, textarea {
 			letter-spacing: 0.225em;
 			text-transform: uppercase;
 			top: 0;
+			margin-bottom: 1em;
 		}
 
 			#main > header p a {
@@ -3841,23 +3842,23 @@ input, select, textarea {
 		@media screen and (max-width: 1680px) {
 
 			#main > header {
-				padding: 10em 0 8em 0 ;
+				padding: 2em 0 1em 0 ;
 			}
 
 		}
 
-		@media screen and (max-width: 1280px) {
+		/* @media screen and (max-width: 1280px) {
 
 			#main > header {
-				padding: 8em 3em 6em 3em ;
+				padding: 2em 0em 1em 0em ;
 			}
 
-		}
+		} */
 
 		@media screen and (max-width: 980px) {
 
 			#main > header {
-				padding: 10em 3em 8em 3em ;
+				padding: 2em 2em 1em 2em ;
 			}
 
 		}
@@ -3865,7 +3866,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#main > header {
-				padding: 5em 3em 3em 3em ;
+				padding: 2em 2em 1em 2em ;
 			}
 
 				#main > header h2 {
