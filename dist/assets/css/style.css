@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* Основной Цвет */
+#wrapper {
+    height: inherit;
+}
+
 .spotlight:nth-child(1) {
     background-color: rgb(51, 102, 102);
 }
@@ -72,46 +76,34 @@ body {
     float: left;
     max-width: 360px;
     margin-right: 20px;
+    margin-bottom: 20px;
     border: 1px solid #3e3f3d;
     border-radius: 20px;
     box-shadow: 0 0 20px #4b4c4b;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 426px) {
     .foto {
         max-width: 350px;
-        margin-bottom: 20px;
+        margin-right: 0px;
     }
 }
 
 @media (max-width: 380px) {
     .foto {
         max-width: 320px;
-        margin-bottom: 20px;
     }
 }
 
 @media (max-width: 326px) {
     .foto {
         max-width: 270px;
-        margin-bottom: 20px;
     }
 }
 
 /* ZERO */
 /* end of the ZERO */
 /*^ Для более комфортного отображения */
-.wrapper {
-    padding: 20px 0px;
-    min-height: 100vh;
-}
-
-.title {
-    font-size: 40px;
-    font-weight: 400;
-    color: azure;
-}
-
 /* ----------------------------------- */
 /*& Флекс если нужен будет*/
 /* 

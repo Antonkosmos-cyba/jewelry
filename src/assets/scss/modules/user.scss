@@ -1,3 +1,6 @@
+#wrapper {
+    height: inherit;
+}
 .spotlight:nth-child(1) {
     background-color: $color-primary-1; 
 }
@@ -68,19 +71,20 @@ body {
     float: left;
     max-width: 360px;
     margin-right: 20px;
+    margin-bottom: 20px;
     border: 1px solid #3e3f3d;
     border-radius: 20px;
     box-shadow: 0 0 20px #4b4c4b;
-    @media (max-width: 425px) {
+    @media (max-width: 426px) {
         max-width: 350px;
-        margin-bottom: 20px;
+        margin-right: 0px;
     }
     @media (max-width: 380px) {
         max-width: 320px;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
     @media (max-width: 326px) {
         max-width: 270px;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
 }
