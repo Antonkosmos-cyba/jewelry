@@ -123,6 +123,10 @@ body {
   min-width: 0;
 } */
 /*& --------------------------------- */
+.wrapper-slider {
+    height: 100vh;
+}
+
 .image-slider_image {
     margin: 10px auto;
     text-align: center;
@@ -145,13 +149,20 @@ body {
 
 /* Стили пагинации и буллетов*/
 .image-slider .swiper-pagination {
-    bottom: 10vh;
+    bottom: 0vh;
+}
+
+.swiper_title {
+    font-size: 2em;
+    margin: 20px 0;
+    font-weight: 100;
+    text-align: center;
 }
 
 .subtitle {
     margin-top: 2vh;
   /* margin-bottom: 2vh; */
-    font-size: 1, 5em;
+    font-size: 1.5em;
     text-align: center;
 }
 
